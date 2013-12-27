@@ -51,4 +51,4 @@ Get a single row from a table by its primary key. For single-column primary key 
 
 ## License
 
-Released under the MIT License.
+Released under the LGPL.
