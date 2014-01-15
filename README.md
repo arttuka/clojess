@@ -6,7 +6,7 @@ An MS Access libary for Clojure, wrapping [Jackcess](http://jackcess.sourceforge
 
 Clojess is deployed to [Clojars](https://clojars.org/clojess)
 
-lein dependency: ["clojess" "0.2"]
+lein dependency: ["clojess" "0.3"]
 
 ## Usage
 
