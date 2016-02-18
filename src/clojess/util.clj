@@ -46,9 +46,16 @@
     (let [pattern (walk/stringify-keys pattern)]
       (for [row (iterator-seq
                   (reify java.util.Iterator
-                    (hasNext [this] (.findNextRow cursor pattern))
-                    (next [this] (.getCurrentRow cursor))
-                    (remove [this] (.deleteCurrentRow cursor))))]
+                    (hasNext [this]
+                      (let [savepoint (.getSavepoint cursor)
+                                          result (.findNextRow cursor pattern)]
+                                      (.restoreSavepoint cursor savepoint)
+                                      result))
+                    (next [this]
+                      (.findNextRow cursor pattern)
+                      (.getCurrentRow cursor))
+                    (remove [this]
+                      (.deleteCurrentRow cursor))))]
         (walk/keywordize-keys (into {} row))))))
 
 (defn matching-rows
