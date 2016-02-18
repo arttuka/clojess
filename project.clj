@@ -1,4 +1,4 @@
-(defproject clojess "0.3"
+(defproject clojess "0.3.1"
   :description "An MS Access libary for Clojure, wrapping Jackcess"
   :url "https://github.com/arttuka/clojess"
   :license {:name "LGPL License"
